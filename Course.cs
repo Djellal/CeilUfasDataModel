@@ -21,6 +21,8 @@ namespace CeilApp.Models
         public bool IsActive { get; set; } = true;
         public int Duration { get; set; } = 0;
 
+        public string Image { get; set; } = "";
+
         [ForeignKey("CourseType")]
         public int CourseTypeId { get; set; }
         public CourseType? CourseType { get; set; }
