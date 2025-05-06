@@ -18,13 +18,15 @@ namespace CeilApp.Models
 
         public int Duration { get; set; } = 0;
 
+        public bool IsActive { get; set; } = true;
+
         [ForeignKey("Course")]
         public int CourseId { get; set; }
         public Course? Course { get; set; }
 
 
-        [ForeignKey("PrevCourseLevel")]
-        public int? PreviousCourseLevelId { get; set; }
-        public CourseLevel? PrevCourseLevel { get; set; }
+        [ForeignKey("NextLevel")]
+        public int? NextLevelId { get; set; }
+        public CourseLevel? NextLevel { get; set; }
     }
 }

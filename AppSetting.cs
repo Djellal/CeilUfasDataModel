@@ -28,6 +28,9 @@ namespace CeilApp.Models
         [MaxLength(250)]
         public string LinkredIn { get; set; } = string.Empty;
 
+        [MaxLength(250)]
+        public string X { get; set; } = string.Empty;
+
         public string Logo { get; set; } = string.Empty;
 
         [ForeignKey("CurrentSession")]
@@ -35,5 +38,6 @@ namespace CeilApp.Models
         public Session? CurrentSession { get; set; }
 
         public bool IsRegistrationOpened { get; set; } = false;
+        public int MaxRegistrationPerSession { get; set; } = 2;
     }
 }

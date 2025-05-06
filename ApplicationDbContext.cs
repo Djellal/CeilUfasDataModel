@@ -8,7 +8,7 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = "Host=127.0.0.1;Database=ceilufas;User ID=postgres;Password=ufaspg2017;";
+        var connectionString = "Host=127.0.0.1;Database=ceilapp;User ID=postgres;Password=ufaspg2017;";
 
         optionsBuilder.UseNpgsql(connectionString);
     }

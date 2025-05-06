@@ -18,8 +18,7 @@ namespace CeilApp.Models
         [MaxLength(250)]
         public string NameAr { get; set; } = "";
 
-        public bool IsActive { get; set; } = true;
-        public int Duration { get; set; } = 0;
+        public bool IsActive { get; set; } = true;        
 
         public string Image { get; set; } = "";
 
