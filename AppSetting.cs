@@ -33,6 +33,8 @@ namespace CeilApp.Models
 
         public string Logo { get; set; } = string.Empty;
 
+        public string TermsAndConditions { get; set; } = string.Empty;
+
         [ForeignKey("CurrentSession")]
         public int? CurrentSessionId { get; set; }
         public Session? CurrentSession { get; set; }
