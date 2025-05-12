@@ -35,7 +35,7 @@ namespace DataModel.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("character varying(250)");
 
-                    b.Property<int>("CurrentSessionId")
+                    b.Property<int?>("CurrentSessionId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Email")
@@ -413,9 +413,7 @@ namespace DataModel.Migrations
                 {
                     b.HasOne("CeilApp.Models.Session", "CurrentSession")
                         .WithMany()
-                        .HasForeignKey("CurrentSessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CurrentSessionId");
 
                     b.Navigation("CurrentSession");
                 });
