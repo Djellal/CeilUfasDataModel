@@ -29,6 +29,12 @@ namespace CeilApp.Models
         public string LinkredIn { get; set; } = string.Empty;
 
         [MaxLength(250)]
+        public string Youtube { get; set; } = string.Empty;
+
+        [MaxLength(250)]
+        public string Instagram { get; set; } = string.Empty;
+
+        [MaxLength(250)]
         public string X { get; set; } = string.Empty;
 
         public string Logo { get; set; } = string.Empty;
