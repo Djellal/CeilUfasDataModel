@@ -51,7 +51,7 @@ namespace CeilApp.Models
         [ForeignKey("BirthMunicipality")]
         [Display(Name = "Birth Municipality")]
         public int BirthMunicipalityId { get; set; }
-        public Municipality? BirthMunicipality { get; set; }
+        public Municipality BirthMunicipality { get; set; }
 
         [Required]
         [MaxLength(250)]
@@ -65,13 +65,13 @@ namespace CeilApp.Models
         [Required]
         [ForeignKey("Profession")]
         [Display(Name = "Profession")]
-        public int ProfessionId { get; set; }
-        public Profession? Profession { get; set; }
+        public int? ProfessionId { get; set; }
+        public Profession Profession { get; set; }
 
         [Required]
         [ForeignKey("Course")]
         public int CourseId { get; set; }
-        public Course? Course { get; set; }
+        public Course Course { get; set; }
 
         [Required]
         [ForeignKey("CourseLevel")]
@@ -82,7 +82,7 @@ namespace CeilApp.Models
         [Required]
         [ForeignKey("Session")]
         public int SessionId { get; set; }
-        public Session? Session { get; set; }
+        public Session Session { get; set; }
 
         
        

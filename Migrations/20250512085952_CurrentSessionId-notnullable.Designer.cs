@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataModel.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250509101011_Initdb")]
-    partial class Initdb
+    [Migration("20250512085952_CurrentSessionId-notnullable")]
+    partial class CurrentSessionIdnotnullable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,7 @@ namespace DataModel.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("character varying(250)");
 
-                    b.Property<int?>("CurrentSessionId")
+                    b.Property<int>("CurrentSessionId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Email")
@@ -416,7 +416,9 @@ namespace DataModel.Migrations
                 {
                     b.HasOne("CeilApp.Models.Session", "CurrentSession")
                         .WithMany()
-                        .HasForeignKey("CurrentSessionId");
+                        .HasForeignKey("CurrentSessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("CurrentSession");
                 });

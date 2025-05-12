@@ -22,11 +22,11 @@ namespace CeilApp.Models
 
         [ForeignKey("Course")]
         public int CourseId { get; set; }
-        public Course? Course { get; set; }
+        public Course Course { get; set; }
 
 
         [ForeignKey("NextLevel")]
         public int? NextLevelId { get; set; }
-        public CourseLevel? NextLevel { get; set; }
+        public CourseLevel NextLevel { get; set; }
     }
 }

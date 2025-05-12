@@ -24,6 +24,6 @@ namespace CeilApp.Models
 
         [ForeignKey("CourseType")]
         public int CourseTypeId { get; set; }
-        public CourseType? CourseType { get; set; }
+        public CourseType CourseType { get; set; }
     }
 }

@@ -36,8 +36,8 @@ namespace CeilApp.Models
         public string TermsAndConditions { get; set; } = string.Empty;
 
         [ForeignKey("CurrentSession")]
-        public int? CurrentSessionId { get; set; }
-        public Session? CurrentSession { get; set; }
+        public int CurrentSessionId { get; set; }
+        public Session CurrentSession { get; set; }
 
         public bool IsRegistrationOpened { get; set; } = false;
         public int MaxRegistrationPerSession { get; set; } = 2;
