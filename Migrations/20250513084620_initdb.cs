@@ -109,6 +109,8 @@ namespace DataModel.Migrations
                     WebSite = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
                     FB = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
                     LinkredIn = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    Youtube = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    Instagram = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
                     X = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
                     Logo = table.Column<string>(type: "text", nullable: false),
                     TermsAndConditions = table.Column<string>(type: "text", nullable: false),
@@ -143,6 +145,27 @@ namespace DataModel.Migrations
                         name: "FK_Municipalities_States_StateId",
                         column: x => x.StateId,
                         principalTable: "States",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CourseComponents",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: false),
+                    Coeff = table.Column<double>(type: "double precision", nullable: false),
+                    CourseId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CourseComponents", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CourseComponents_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -249,6 +272,11 @@ namespace DataModel.Migrations
                 column: "CurrentSessionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CourseComponents_CourseId",
+                table: "CourseComponents",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CourseLevels_CourseId",
                 table: "CourseLevels",
                 column: "CourseId");
@@ -304,6 +332,9 @@ namespace DataModel.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AppSettings");
+
+            migrationBuilder.DropTable(
+                name: "CourseComponents");
 
             migrationBuilder.DropTable(
                 name: "CourseRegistrations");

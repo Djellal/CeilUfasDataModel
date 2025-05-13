@@ -1,7 +1,7 @@
-﻿using CeilApp.Models;
+﻿
 using Microsoft.EntityFrameworkCore;
 
-namespace CeilApp.Data;
+namespace DataModel;
 
 public class ApplicationDbContext : DbContext
 {
@@ -18,6 +18,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<CourseType> CourseTypes { get; set; }
     public DbSet<Course> Courses { get; set; }
     public DbSet<CourseLevel> CourseLevels { get; set; }
+    public DbSet<CourseComponent> CourseComponents { get; set; }
     public DbSet<State> States { get; set; }
     public DbSet<Municipality> Municipalities { get; set; }
     public DbSet<CourseRegistration> CourseRegistrations { get; set; }
